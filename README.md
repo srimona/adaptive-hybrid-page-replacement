@@ -1,5 +1,3 @@
-# adaptive-hybrid-page-replacement
-A virtual memory simulator benchmarking Adaptive Hybrid Page Replacement (AHPR) against LRU, FIFO, and Belady's Optimal algorithms.
 # Adaptive Hybrid Page Replacement (AHPR) Simulator
 A high-performance discrete-event virtual memory simulator evaluating dynamic page replacement policies under skewed locality, sequential scan, and uniform random workloads. Designed and benchmarked for an undergraduate Computer Science & Engineering research study.
 
@@ -11,8 +9,6 @@ Modern operating systems rely heavily on efficient physical memory management to
 * **First-In, First-Out (FIFO)** completely ignores memory access patterns and is susceptible to Belady's Anomaly.
 
 The **Adaptive Hybrid Page Replacement (AHPR)** framework resolves these trade-offs by evaluating frames through a unified eviction scoring metric that balances normalized temporal recency decay and reference frequency history. This repository contains the complete simulation engine, synthetic trace generators, automated parameter sweeping tools, and visualization pipelines.
-
-## Mathematical Formulation
 
 ## Mathematical Formulation
 
