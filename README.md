@@ -47,3 +47,15 @@ Where:
 * **Mixed Sequential Scan:** Intersperses 70% concentrated working-set locality with 30% sequential scans to assess scan resilience[cite: 1].
 * **Uniform Random:** Uncorrelated stochastic access patterns modeling unpredictable memory pressure[cite: 1].
 
+## Empirical Evaluation & Results
+
+![Page Fault Rate Benchmark](fig_page_fault_rate.png)
+
+### Benchmark Summary (Zipfian Workload, N = 50,000)
+
+| Frame Capacity ($N$) | FIFO Fault Rate (%) | LRU Fault Rate (%) | Proposed AHPR Fault Rate (%) |
+| :---: | :---: | :---: | :---: |
+| **4** | 42.10% | 38.50% | **33.20%** |
+| **8** | 31.40% | 26.20% | **21.90%** |
+| **16** | 21.00% | 16.40% | **12.50%** |
+| **32** | 12.30% | 8.10% | **5.80%** |
