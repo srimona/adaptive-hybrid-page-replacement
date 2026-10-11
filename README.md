@@ -49,7 +49,7 @@ Where:
 
 ## Empirical Evaluation & Results
 
-![Page Fault Rate Benchmark](fig_page_fault_rate.png)
+![Page Fault Rate Benchmark](./fig_page_fault_rate.png)
 
 ### Benchmark Summary (Zipfian Workload, N = 50,000)
 
