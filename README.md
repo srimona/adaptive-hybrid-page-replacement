@@ -4,7 +4,7 @@ A high-performance discrete-event virtual memory simulator evaluating dynamic pa
 
 ---
 
-## 📌 Abstract & Overview
+## Abstract & Overview
 
 Modern operating systems rely heavily on efficient physical memory management to prevent costly disk and SSD I/O page fault overhead. Traditional single-metric heuristics suffer from structural weaknesses:
 * **Least Recently Used (LRU)** experiences severe cache pollution during one-off sequential memory scans.
@@ -15,7 +15,7 @@ The **Adaptive Hybrid Page Replacement (AHPR)** framework resolves these trade-o
 
 ---
 
-## 🔬 Mathematical Formulation
+## Mathematical Formulation
 
 Upon a page fault when all physical frames are occupied, AHPR evaluates an eviction penalty score $S_i$ for every active frame $i$:
 
