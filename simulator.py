@@ -52,25 +52,39 @@ def run_lru(capacity, trace):
         last_access[page] = t
     return faults
 
+# --- UPDATED AHPR FUNCTION ---
 def run_ahpr(capacity, trace):
-    active_frames, max_freq, faults = {}, 1, 0
+    active_frames, faults = {}, 0
+    
     for t, page in enumerate(trace):
+        # Aging mechanism: decay historical frequency to prevent lock-in
+        if t > 0 and t % 10000 == 0:
+            for p in active_frames:
+                active_frames[p][1] >>= 1  # Integer division by 2
+
         if page in active_frames:
             active_frames[page][0] = t
             active_frames[page][1] += 1
-            if active_frames[page][1] > max_freq:
-                max_freq = active_frames[page][1]
         else:
             faults += 1
             if len(active_frames) >= capacity:
+                # Dynamic T_max and F_max based ONLY on currently loaded frames
+                current_t_diffs = [(t - info[0]) for info in active_frames.values()]
+                current_freqs = [info[1] for info in active_frames.values()]
+                
+                t_max = max(current_t_diffs) if current_t_diffs else 1
+                f_max = max(current_freqs) if current_freqs else 1
+                
                 victim, max_score = None, -1.0
                 for p, (last_t, freq) in active_frames.items():
-                    recency_penalty = (t - last_t) / (t + 1)
-                    freq_penalty = 1.0 - (freq / max_freq)
+                    recency_penalty = (t - last_t) / t_max
+                    freq_penalty = 1.0 - (freq / f_max)
+                    
                     score = (ALPHA * recency_penalty) + ((1.0 - ALPHA) * freq_penalty)
                     if score > max_score:
                         max_score = score
                         victim = p
+                        
                 del active_frames[victim]
             active_frames[page] = [t, 1]
     return faults
