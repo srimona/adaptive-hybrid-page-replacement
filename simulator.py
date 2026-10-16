@@ -52,7 +52,7 @@ def run_lru(capacity, trace):
         last_access[page] = t
     return faults
 
-# --- UPDATED AHPR FUNCTION ---
+# --- FULLY UPDATED AHPR FUNCTION ---
 def run_ahpr(capacity, trace):
     active_frames, faults = {}, 0
     
@@ -74,6 +74,10 @@ def run_ahpr(capacity, trace):
                 
                 t_max = max(current_t_diffs) if current_t_diffs else 1
                 f_max = max(current_freqs) if current_freqs else 1
+                
+                # SAFEGUARD: Prevent division by zero if aging decays all frequencies to 0
+                t_max = max(t_max, 1)
+                f_max = max(f_max, 1)
                 
                 victim, max_score = None, -1.0
                 for p, (last_t, freq) in active_frames.items():
