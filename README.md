@@ -61,5 +61,5 @@ Where:
 | **32** | 12.30% | 8.10% | **5.80%** |
 
 ## Live demo - Implementing AHPR in Router DNS Defense
-Access the interactive protocol simulator here: [SA-UDP live dashboard](https://adaptive-hybrid-page-replacement-ui.streamlit.app/)
+Access the interactive simulator here: [SA-UDP live dashboard](https://adaptive-hybrid-page-replacement-ui.streamlit.app/)
 
