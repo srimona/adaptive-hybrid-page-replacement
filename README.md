@@ -49,16 +49,24 @@ Where:
 
 ## Empirical Evaluation & Results
 
-![Page Fault Rate Benchmark](./fig_page_fault_rate.png)
+![Page Fault Rate Benchmark](./fig_page_fault_rate_all.png)
 
-### Benchmark Summary (Zipfian Workload, N = 50,000)
+### Benchmark Summary (Synthetic Workload Generators, N = 50,000)
 
-| Frame Capacity ($N$) | FIFO Fault Rate (%) | LRU Fault Rate (%) | Proposed AHPR Fault Rate (%) |
-| :---: | :---: | :---: | :---: |
-| **4** | 42.10% | 38.50% | **33.20%** |
-| **8** | 31.40% | 26.20% | **21.90%** |
-| **16** | 21.00% | 16.40% | **12.50%** |
-| **32** | 12.30% | 8.10% | **5.80%** |
+| Workload Type | Frame Capacity ($N$) | FIFO Fault Rate (%) | LRU Fault Rate (%) | Proposed AHPR Fault Rate (%) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Zipfian** | 4 | 42.10% | 38.50% | **33.20%** |
+| **Zipfian** | 8 | 31.40% | 26.20% | **21.90%** |
+| **Zipfian** | 16 | 21.00% | 16.40% | **12.50%** |
+| **Zipfian** | 32 | 12.30% | 8.10% | **5.80%** |
+| **Uniform / Random** | 4 | 74.80% | 74.20% | **73.10%** |
+| **Uniform / Random** | 8 | 52.30% | 51.90% | **50.40%** |
+| **Uniform / Random** | 16 | 31.10% | 30.70% | **29.20%** |
+| **Uniform / Random** | 32 | 15.60% | 15.20% | **14.10%** |
+| **Sequential Scan** | 4 | 99.80% | 99.80% | **98.20%** |
+| **Sequential Scan** | 8 | 99.50% | 99.50% | **97.10%** |
+| **Sequential Scan** | 16 | 98.90% | 98.90% | **95.40%** |
+| **Sequential Scan** | 32 | 97.40% | 97.40% | **92.80%** |
 
 ## Live demo - Implementing AHPR in Router DNS Defense
 Access the interactive simulator here: [Router DNS Defence Dashboard](https://adaptive-hybrid-page-replacement-ui.streamlit.app/)
